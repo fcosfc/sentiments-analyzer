@@ -3,11 +3,18 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     
-    <groupId>com.example.application</groupId>
+    <groupId>com.wordpress.fcosfc.poc.nlp</groupId>
     <artifactId>sentiments-analyzer</artifactId>
     <name>Sentiments analyzer</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    
+    <developers>
+        <developer>
+            <name>Paco Saucedo</name>
+            <url>http://fcosfc.wordpress.com</url>
+        </developer>
+    </developers>
 
     <properties>
         <java.version>11</java.version>
@@ -200,6 +207,11 @@
                 </plugins>
             </build>
         </profile>
-
     </profiles>
+    
+    <scm>
+        <connection>scm:git:https://github.com/fcosfc/sentiments-analyzer.git</connection>
+        <developerConnection>scm:git:https://github.com/fcosfc/sentiments-analyzer.git</developerConnection>
+        <url>https://github.com/fcosfc/sentiments-analyzer.git</url>
+    </scm>
 </project>

@@ -24,7 +24,7 @@ public class AboutView extends VerticalLayout {
         add(new H2("Sentiments analyzer"));
         add(new Paragraph("This is a proof of concept for an application that analyze sentiments in a paragraph"));
         
-        Anchor anchor = new Anchor("https://stanfordnlp.github.io/CoreNLP/", "Natural Language Processing open source libraries provided by Standford CoreNLP");
+        Anchor anchor = new Anchor("https://stanfordnlp.github.io/CoreNLP/", "Natural Language Processing open source libraries provided by Stanford CoreNLP");
         anchor.setTarget(AnchorTargetValue.forString("_blank"));           
         add(anchor);
 
