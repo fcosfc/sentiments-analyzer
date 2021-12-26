@@ -1,6 +1,8 @@
-package com.example.application.views.about;
+package com.wordpress.fcosfc.poc.nlp.views.about;
 
-import com.example.application.views.MainLayout;
+import com.vaadin.flow.component.html.Anchor;
+import com.vaadin.flow.component.html.AnchorTargetValue;
+import com.wordpress.fcosfc.poc.nlp.views.MainLayout;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;
@@ -19,8 +21,12 @@ public class AboutView extends VerticalLayout {
         img.setWidth("200px");
         add(img);
 
-        add(new H2("This place intentionally left empty"));
-        add(new Paragraph("It’s a place where you can grow your own UI 🤗"));
+        add(new H2("Sentiments analyzer"));
+        add(new Paragraph("This is a proof of concept for an application that analyze sentiments in a paragraph"));
+        
+        Anchor anchor = new Anchor("https://stanfordnlp.github.io/CoreNLP/", "Natural Language Processing open source libraries provided by Standford CoreNLP");
+        anchor.setTarget(AnchorTargetValue.forString("_blank"));           
+        add(anchor);
 
         setSizeFull();
         setJustifyContentMode(JustifyContentMode.CENTER);

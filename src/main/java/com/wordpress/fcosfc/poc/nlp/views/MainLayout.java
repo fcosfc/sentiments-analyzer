@@ -1,7 +1,7 @@
-package com.example.application.views;
+package com.wordpress.fcosfc.poc.nlp.views;
 
-import com.example.application.views.about.AboutView;
-import com.example.application.views.helloworld.HelloWorldView;
+import com.wordpress.fcosfc.poc.nlp.views.about.AboutView;
+import com.wordpress.fcosfc.poc.nlp.views.main.SentimentsAnalyzerView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -61,6 +61,7 @@ public class MainLayout extends AppLayout {
         setPrimarySection(Section.DRAWER);
         addToNavbar(true, createHeaderContent());
         addToDrawer(createDrawerContent());
+        setDrawerOpened(false);
     }
 
     private Component createHeaderContent() {
@@ -102,12 +103,13 @@ public class MainLayout extends AppLayout {
             ListItem item = new ListItem(link);
             list.add(item);
         }
+        
         return nav;
     }
 
     private List<RouterLink> createLinks() {
         MenuItemInfo[] menuItems = new MenuItemInfo[]{ //
-                new MenuItemInfo("Hello World", "la la-globe", HelloWorldView.class), //
+                new MenuItemInfo("Sentiments Analyzer", "la la-globe", SentimentsAnalyzerView.class), //
 
                 new MenuItemInfo("About", "la la-file", AboutView.class), //
 
