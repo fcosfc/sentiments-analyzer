@@ -10,7 +10,6 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 import com.wordpress.fcosfc.poc.nlp.model.Sentiment;
 import com.wordpress.fcosfc.poc.nlp.service.SentimentsService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @PageTitle("Sentiments analyzer")
@@ -65,12 +64,8 @@ public class SentimentsAnalyzerView extends VerticalLayout {
     void estimateSentiments(String paragraph) {
         if (paragraph.isEmpty()) {
             clearTexts();
-        } else {
-            List<Sentiment> sentimentsList = sentimentsService.estimateSentiments(paragraph);
-            System.out.println("Tamaño de la lista: " + sentimentsList.size());
-            
-            
-            estimatedSentimentsGrid.setItems(sentimentsList);
+        } else {            
+            estimatedSentimentsGrid.setItems(sentimentsService.estimateSentiments(paragraph));
             estimatedSentimentsGrid.setVisible(true);           
 
             clearBtn.setVisible(true);

@@ -101,16 +101,15 @@ public class MainLayout extends AppLayout {
             ListItem item = new ListItem(link);
             list.add(item);
         }
-        
+
         return nav;
     }
 
     private List<RouterLink> createLinks() {
         MenuItemInfo[] menuItems = new MenuItemInfo[]{ //
-                new MenuItemInfo("Sentiments Analyzer", "la la-globe", SentimentsAnalyzerView.class), //
-
-                new MenuItemInfo("About", "la la-file", AboutView.class), //
-
+            new MenuItemInfo("Sentiments Analyzer", "la la-search", SentimentsAnalyzerView.class),
+            new MenuItemInfo("Estimations", "la la-database", EstimationsView.class),
+            new MenuItemInfo("About", "la la-file", AboutView.class),
         };
         List<RouterLink> links = new ArrayList<>();
         for (MenuItemInfo menuItemInfo : menuItems) {
