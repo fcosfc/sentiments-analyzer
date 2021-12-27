@@ -1,7 +1,5 @@
 package com.wordpress.fcosfc.poc.nlp.views;
 
-import com.wordpress.fcosfc.poc.nlp.views.about.AboutView;
-import com.wordpress.fcosfc.poc.nlp.views.main.SentimentsAnalyzerView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;

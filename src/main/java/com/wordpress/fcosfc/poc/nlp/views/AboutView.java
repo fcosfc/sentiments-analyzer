@@ -1,8 +1,7 @@
-package com.wordpress.fcosfc.poc.nlp.views.about;
+package com.wordpress.fcosfc.poc.nlp.views;
 
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.AnchorTargetValue;
-import com.wordpress.fcosfc.poc.nlp.views.MainLayout;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;

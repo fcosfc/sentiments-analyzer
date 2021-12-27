@@ -2,23 +2,23 @@ package com.wordpress.fcosfc.poc.nlp.model;
 
 public class Sentiment {
 
-    private String name;
+    private String sentimentName;
     private int predictedClass;
     private String sentence;
 
-    public Sentiment(String name, int predictedClass, String sentence) {
-        this.name = name;
+    public Sentiment(String sentimentName, int predictedClass, String sentence) {
+        this.sentimentName = sentimentName;
         this.predictedClass = predictedClass;
         this.sentence = sentence;
     }
-    
-    public String getName() {
-        return name;
+
+    public String getSentimentName() {
+        return sentimentName;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setSentimentName(String sentimentName) {
+        this.sentimentName = sentimentName;
+    }        
 
     public int getPredictedClass() {
         return predictedClass;

@@ -1,7 +1,7 @@
-package com.wordpress.fcosfc.poc.nlp.views.main;
+package com.wordpress.fcosfc.poc.nlp.views;
 
-import com.wordpress.fcosfc.poc.nlp.views.MainLayout;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.data.value.ValueChangeMode;
@@ -22,7 +22,8 @@ public class SentimentsAnalyzerView extends VerticalLayout {
 
     private final SentimentsService sentimentsService;
 
-    private final TextArea sentimentTxt, estimatedSentimentsTxt;
+    private final TextArea sentimentTxt;
+    Grid<Sentiment> estimatedSentimentsGrid;
     private final Button analyzeBtn, clearBtn;
 
     @Autowired
@@ -36,12 +37,14 @@ public class SentimentsAnalyzerView extends VerticalLayout {
         sentimentTxt.setValueChangeMode(ValueChangeMode.EAGER);
         sentimentTxt.addValueChangeListener(e -> {
             e.getSource().setHelperText(e.getValue().length() + "/" + CHAR_LIMIT);
-        });
-
-        estimatedSentimentsTxt = new TextArea("These are the estimated sentiments");
-        estimatedSentimentsTxt.setWidthFull();
-        estimatedSentimentsTxt.setReadOnly(true);
-        estimatedSentimentsTxt.setVisible(false);
+        });        
+        
+        estimatedSentimentsGrid = new Grid<>(Sentiment.class, false); 
+        estimatedSentimentsGrid.addColumn(Sentiment::getSentence).setHeader("Sentence");
+        estimatedSentimentsGrid.addColumn(Sentiment::getSentimentName).setHeader("Sentiment");   
+        estimatedSentimentsGrid.setSelectionMode(Grid.SelectionMode.NONE);
+        estimatedSentimentsGrid.setWidthFull();          
+        estimatedSentimentsGrid.setVisible(false);
 
         analyzeBtn = new Button("Analyze");
         analyzeBtn.addClickListener(e -> {
@@ -56,28 +59,19 @@ public class SentimentsAnalyzerView extends VerticalLayout {
 
         setMargin(true);
 
-        add(sentimentTxt, analyzeBtn, estimatedSentimentsTxt, clearBtn);
+        add(sentimentTxt, analyzeBtn, estimatedSentimentsGrid, clearBtn);
     }
 
     void estimateSentiments(String paragraph) {
         if (paragraph.isEmpty()) {
             clearTexts();
         } else {
-            List<Sentiment> estimatedSentiments = sentimentsService.estimateSentiments(paragraph);
-
-            StringBuilder builder = new StringBuilder();
-            for (Sentiment sentiment : estimatedSentiments) {
-                builder.append("Name: ");
-                builder.append(sentiment.getName());
-                builder.append(", class: ");
-                builder.append(sentiment.getPredictedClass());
-                builder.append(", sentence: ");
-                builder.append(sentiment.getSentence());
-                builder.append("\n");
-            }
-
-            estimatedSentimentsTxt.setValue(builder.toString());
-            estimatedSentimentsTxt.setVisible(true);
+            List<Sentiment> sentimentsList = sentimentsService.estimateSentiments(paragraph);
+            System.out.println("Tamaño de la lista: " + sentimentsList.size());
+            
+            
+            estimatedSentimentsGrid.setItems(sentimentsList);
+            estimatedSentimentsGrid.setVisible(true);           
 
             clearBtn.setVisible(true);
         }
@@ -85,7 +79,8 @@ public class SentimentsAnalyzerView extends VerticalLayout {
 
     void clearTexts() {
         sentimentTxt.setValue("");
-        estimatedSentimentsTxt.setVisible(false);
+        estimatedSentimentsGrid.setVisible(false);
+        
         clearBtn.setVisible(false);
     }
 
