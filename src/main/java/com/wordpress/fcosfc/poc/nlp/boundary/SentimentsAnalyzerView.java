@@ -12,6 +12,11 @@ import com.wordpress.fcosfc.poc.nlp.entity.Sentiment;
 import com.wordpress.fcosfc.poc.nlp.control.SentimentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * View for sentimentes analyzing
+ * 
+ * @author Paco Saucedo.
+ */
 @PageTitle("Sentiments analyzer")
 @Route(value = "analyzer", layout = MainLayout.class)
 @RouteAlias(value = "", layout = MainLayout.class)

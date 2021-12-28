@@ -9,6 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+/**
+ * Entity that represents a sentiment
+ * 
+ * @author Paco Saucedo.
+ */
 @Entity
 public class Sentiment implements Serializable {
 
@@ -19,7 +24,6 @@ public class Sentiment implements Serializable {
     private long sentimentId;
     
     private String sentimentName;
-    private int predictedClass;
     private String sentence;
     
     @ManyToOne
@@ -29,9 +33,8 @@ public class Sentiment implements Serializable {
     public Sentiment() {
     }
 
-    public Sentiment(String sentimentName, int predictedClass, String sentence, Estimation estimation) {
+    public Sentiment(String sentimentName, String sentence, Estimation estimation) {
         this.sentimentName = sentimentName;
-        this.predictedClass = predictedClass;
         this.sentence = sentence;
         this.estimation = estimation;
     }          
@@ -46,14 +49,6 @@ public class Sentiment implements Serializable {
 
     public void setSentimentName(String sentimentName) {
         this.sentimentName = sentimentName;
-    }
-
-    public int getPredictedClass() {
-        return predictedClass;
-    }
-
-    public void setPredictedClass(int predictedClass) {
-        this.predictedClass = predictedClass;
     }
 
     public String getSentence() {
@@ -77,7 +72,6 @@ public class Sentiment implements Serializable {
         int hash = 3;
         hash = 71 * hash + (int) (this.sentimentId ^ (this.sentimentId >>> 32));
         hash = 71 * hash + Objects.hashCode(this.sentimentName);
-        hash = 71 * hash + this.predictedClass;
         hash = 71 * hash + Objects.hashCode(this.sentence);
         return hash;
     }
@@ -97,9 +91,6 @@ public class Sentiment implements Serializable {
         if (this.sentimentId != other.sentimentId) {
             return false;
         }
-        if (this.predictedClass != other.predictedClass) {
-            return false;
-        }
         if (!Objects.equals(this.sentimentName, other.sentimentName)) {
             return false;
         }
@@ -111,7 +102,7 @@ public class Sentiment implements Serializable {
 
     @Override
     public String toString() {
-        return "Sentiment{" + "sentimentId=" + sentimentId + ", sentimentName=" + sentimentName + ", predictedClass=" + predictedClass + ", sentence=" + sentence + '}';
+        return "Sentiment{" + "sentimentId=" + sentimentId + ", sentimentName=" + sentimentName + ", sentence=" + sentence + '}';
     }        
         
 }

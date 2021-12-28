@@ -11,6 +11,11 @@ import com.wordpress.fcosfc.poc.nlp.control.EstimationRepository;
 import com.wordpress.fcosfc.poc.nlp.control.SentimentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * View to query previous estimations of sentiments
+ * 
+ * @author Paco Saucedo
+ */
 @PageTitle("Estimations")
 @Route(value = "estimations", layout = MainLayout.class)
 public class EstimationsView extends SplitLayout {       

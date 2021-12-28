@@ -2,10 +2,7 @@ package com.wordpress.fcosfc.poc.nlp.control;
 
 import com.wordpress.fcosfc.poc.nlp.entity.Estimation;
 import com.wordpress.fcosfc.poc.nlp.entity.Sentiment;
-import com.wordpress.fcosfc.poc.nlp.control.EstimationRepository;
-import com.wordpress.fcosfc.poc.nlp.control.SentimentRepository;
 import edu.stanford.nlp.ling.CoreAnnotations;
-import edu.stanford.nlp.neural.rnn.RNNCoreAnnotations;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
@@ -16,7 +13,13 @@ import java.util.List;
 import java.util.Properties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Service for NLP analizing of sentiments
+ * 
+ * @author Paco Saucedo.
+ */
 @Service
 public class SentimentsService {
 
@@ -34,7 +37,14 @@ public class SentimentsService {
 
         pipeline = new StanfordCoreNLP(props);
     }
-
+    
+    /**
+     * Method for estimating sentiments and saving for further reference
+     * 
+     * @param paragraph Text to analyze
+     * @return List of sentiments
+     */
+    @Transactional
     public List<Sentiment> estimateSentiments(String paragraph) {
         List<Sentiment> estimatedSentiments = new ArrayList<>();
         Estimation estimation = new Estimation(paragraph);
@@ -45,7 +55,6 @@ public class SentimentsService {
             Tree tree = sentence.get(SentimentCoreAnnotations.SentimentAnnotatedTree.class);
 
             Sentiment sentiment = new Sentiment(sentence.get(SentimentCoreAnnotations.SentimentClass.class),
-                    RNNCoreAnnotations.getPredictedClass(tree),
                     sentence.toString(),
                     estimation);
             estimatedSentiments.add(sentiment);

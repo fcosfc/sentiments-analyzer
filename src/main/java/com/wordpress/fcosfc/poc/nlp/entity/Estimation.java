@@ -12,6 +12,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ * Entity that represents an estimation of sentiments in a paragraph
+ * 
+ * @author Paco Saucedo
+ */
 @Entity
 public class Estimation implements Serializable {
 
