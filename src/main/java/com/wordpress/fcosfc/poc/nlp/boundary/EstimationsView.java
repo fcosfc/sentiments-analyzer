@@ -7,8 +7,8 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.wordpress.fcosfc.poc.nlp.entity.Estimation;
 import com.wordpress.fcosfc.poc.nlp.entity.Sentiment;
-import com.wordpress.fcosfc.poc.nlp.control.EstimationRepository;
-import com.wordpress.fcosfc.poc.nlp.control.SentimentRepository;
+import com.wordpress.fcosfc.poc.nlp.control.repository.EstimationRepository;
+import com.wordpress.fcosfc.poc.nlp.control.repository.SentimentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

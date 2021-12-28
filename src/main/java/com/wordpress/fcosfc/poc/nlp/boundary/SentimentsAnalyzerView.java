@@ -9,7 +9,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 import com.wordpress.fcosfc.poc.nlp.entity.Sentiment;
-import com.wordpress.fcosfc.poc.nlp.control.SentimentsService;
+import com.wordpress.fcosfc.poc.nlp.control.service.SentimentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

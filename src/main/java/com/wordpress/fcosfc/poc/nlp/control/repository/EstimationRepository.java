@@ -1,4 +1,4 @@
-package com.wordpress.fcosfc.poc.nlp.control;
+package com.wordpress.fcosfc.poc.nlp.control.repository;
 
 import com.wordpress.fcosfc.poc.nlp.entity.Estimation;
 import java.util.List;
