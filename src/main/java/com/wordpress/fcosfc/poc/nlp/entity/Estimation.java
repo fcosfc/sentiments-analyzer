@@ -1,4 +1,4 @@
-package com.wordpress.fcosfc.poc.nlp.model;
+package com.wordpress.fcosfc.poc.nlp.entity;
 
 import java.io.Serializable;
 import java.util.Date;

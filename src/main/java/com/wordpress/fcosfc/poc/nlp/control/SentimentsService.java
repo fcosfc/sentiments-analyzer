@@ -1,9 +1,9 @@
-package com.wordpress.fcosfc.poc.nlp.service;
+package com.wordpress.fcosfc.poc.nlp.control;
 
-import com.wordpress.fcosfc.poc.nlp.model.Estimation;
-import com.wordpress.fcosfc.poc.nlp.model.Sentiment;
-import com.wordpress.fcosfc.poc.nlp.repository.EstimationRepository;
-import com.wordpress.fcosfc.poc.nlp.repository.SentimentRepository;
+import com.wordpress.fcosfc.poc.nlp.entity.Estimation;
+import com.wordpress.fcosfc.poc.nlp.entity.Sentiment;
+import com.wordpress.fcosfc.poc.nlp.control.EstimationRepository;
+import com.wordpress.fcosfc.poc.nlp.control.SentimentRepository;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.neural.rnn.RNNCoreAnnotations;
 import edu.stanford.nlp.pipeline.Annotation;

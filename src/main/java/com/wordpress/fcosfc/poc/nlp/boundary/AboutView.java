@@ -1,4 +1,4 @@
-package com.wordpress.fcosfc.poc.nlp.views;
+package com.wordpress.fcosfc.poc.nlp.boundary;
 
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.AnchorTargetValue;

@@ -1,4 +1,4 @@
-package com.wordpress.fcosfc.poc.nlp.views;
+package com.wordpress.fcosfc.poc.nlp.boundary;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
@@ -8,8 +8,8 @@ import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
-import com.wordpress.fcosfc.poc.nlp.model.Sentiment;
-import com.wordpress.fcosfc.poc.nlp.service.SentimentsService;
+import com.wordpress.fcosfc.poc.nlp.entity.Sentiment;
+import com.wordpress.fcosfc.poc.nlp.control.SentimentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @PageTitle("Sentiments analyzer")
