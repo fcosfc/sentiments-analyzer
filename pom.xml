@@ -19,7 +19,7 @@
     <properties>
         <java.version>11</java.version>
         <vaadin.version>14.8.0</vaadin.version>
-        <vaadin.productionMode>false</vaadin.productionMode>
+        <vaadin.productionMode>true</vaadin.productionMode>
         <jib-maven-plugin.version>3.1.1</jib-maven-plugin.version>
         <docker.image.prefix>fsaucedo.azurecr.io</docker.image.prefix>
     </properties>
@@ -219,6 +219,13 @@
         </profile>
         <profile>
             <id>production</id>
+            <dependencies>
+                <dependency>
+                    <groupId>com.microsoft.sqlserver</groupId>
+                    <artifactId>mssql-jdbc</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
             <build>
                 <plugins>
                     <plugin>
